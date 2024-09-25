@@ -43,6 +43,8 @@ You can visualize the 7-DOF robot arm using:
 roslaunch robot_discription_pkg view_arm.launch
 ```
 ### 3. Differential Wheeled Robot
+![25 09 2024_20 10 41_REC](https://github.com/user-attachments/assets/07577e7e-44e9-439e-8c19-750f5ccbd62c)
+
 For the third robot, a differential wheeled robot, I used modular Xacro files to describe its components, specifically focusing on the wheels and the base.
 
 - wheel.urdf.xacro: This file describes the wheel of the differential wheeled robot, including its dimensions, joints, and link properties.
