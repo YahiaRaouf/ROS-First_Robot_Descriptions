@@ -1,0 +1,23 @@
+in urdf files:
+
+The transmission tag relates a joint to an actuator. It defines the type of transmission that
+we are using in a particular joint, as well as the type of motor and its parameters. It also
+defines the type of hardware interface we use when we interface with the ROS controllers.
+
+1.1 transmission attributes
+	name(required)
+		specifies the unique name of transmission
+
+1.2 trnasmission elements
+	<type>(once)
+		specifies trans. type.
+	
+	<joint>(more thena once)
+		the joint which the transmission is connected to. specified by its name attribute. and the following sub-elements:
+		
+		<hardwareInterface>(more than one occurence)
+			specifies a supported joint-space hardware interface.Note that the value of this tag should be EffortJointInterface when this transmission is loaded in Gazebo and hardware_interface/EffortJointInterface when this transmission is loaded in RobotHW.
+		
+		Note: Hardware Interfaces are used by ROS control in conjunction with one of the ROS controllers to send and receive commands to hardware.
+		
+			1.joint command interface 

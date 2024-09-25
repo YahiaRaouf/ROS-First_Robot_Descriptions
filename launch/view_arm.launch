@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<launch>
+	<arg name="model" />
+	<!-- Parsing xacro and setting robot_description parameter -->
+
+	<param name="robot_description" command="$(find xacro)/xacro $(find robot_discription_pkg)/urdf/seven_DOF_arm.xacro" />
+	
+	<!-- Setting gui parameter to true for display joint slider, for getting joint control-->
+	
+	<param name="use_gui" value="true"/>
+	
+	<!-- Starting Joint state publisher node which will publish the joint values -->
+	
+	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+	
+	<!-- Starting Robot state publisher node which will publish current robot joint state using tf-->
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+	<!-- Launch visualization in rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_discription_pkg)/urdf.rviz" required="true" />
+
+</launch>
